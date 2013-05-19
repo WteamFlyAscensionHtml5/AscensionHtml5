@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="./lib/jquert-1.9.1.min.js"></script>
+<script src="./lib/jquery-1.9.1.min.js"></script>
 <script src="./common/ctrl/AppreanceCtrl.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="./page/common/css/common.css">
@@ -13,12 +13,21 @@
 	href="./page/welcomePage/css/welcomePage.css">
 <meta http-equiv="Content-Type" content="text/html; charset=gbk">
 <script>
+	var appreanceCtrl = null;
+	var menuPageCtrl = null;
+	var welcomePageCtrl = null;
 	window.onload = function() {
 		$(document).ready(function() {
+			appreanceCtrl = new AppreanceCtrl();
+			welcomePageCtrl = new WelcomePageCtrl();
+			menuPageCtrl = new MenuPageCtrl();
+			appreanceCtrl.init();
 		});
 	}
 </script>
 </head>
 <body>
+<div id="MenuPage"></div>
+<div id="WelcomePage"></div>
 </body>
 </html>
