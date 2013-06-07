@@ -11,11 +11,13 @@ var setBackground = function() {
 var initClient = function() {
 	$("body").css("width", document.documentElement.clientWidth);
 	$("body").css("height", document.documentElement.clientHeight);
+	$("#MenuPageBackgroundImg").css("width", document.documentElement.clientWidth);
 	$("#MenuPage").hide();
 	$("#WelcomePage").hide();
 	window.onresize = function() {
 		$("body").css("width", document.documentElement.clientWidth);
 		$("body").css("height", document.documentElement.clientHeight);
+		$("#MenuPageBackgroundImg").css("width", document.documentElement.clientWidth);
 	}
 };
 
