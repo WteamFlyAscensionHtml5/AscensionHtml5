@@ -11,7 +11,7 @@ var setBackground = function() {
 var initClient = function() {
 	$("body").css("width", document.documentElement.clientWidth);
 	$("body").css("height", document.documentElement.clientHeight);
-	$("#MenuPage").hide();
+//	$("#MenuPage").hide();
 	$("#WelcomePage").hide();
 	window.onresize = function() {
 		$("body").css("width", document.documentElement.clientWidth);

@@ -1,0 +1,15 @@
+#WelcomePage {
+	width: 100%;
+	height: 100%;
+	background-image: url(../../welcomePage/img/welcomePageBackground.png);
+	background-repeat: repeat-x;
+	background-color: #F2F2F2;
+}
+
+#WelcomePageLogo {
+	width: 100%;
+	height: 100%;
+	background-image: url(../../welcomePage/img/welcomePageBackgroundLogo.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
