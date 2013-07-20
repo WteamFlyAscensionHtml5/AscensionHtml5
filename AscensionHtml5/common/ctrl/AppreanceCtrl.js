@@ -1,5 +1,6 @@
-// 定义AppreanceCtrl类
-if (typeof AppreanceCtrl == 'undefined') {
+ // 定义AppreanceCtrl类
+//for test
+ if (typeof AppreanceCtrl == 'undefined') {
 	function AppreanceCtrl() {
 	}
 }
@@ -12,7 +13,7 @@ var initClient = function() {
 	$("body").css("width", document.documentElement.clientWidth);
 	$("body").css("height", document.documentElement.clientHeight);
 	$("#MenuPageBackgroundImg").css("width", document.documentElement.clientWidth);
-	$("#MenuPage").hide();
+	$("#MenuPage").show();
 	$("#WelcomePage").hide();
 	window.onresize = function() {
 		$("body").css("width", document.documentElement.clientWidth);
