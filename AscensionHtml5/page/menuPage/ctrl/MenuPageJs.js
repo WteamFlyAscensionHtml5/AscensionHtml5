@@ -17,7 +17,8 @@ if (typeof MenuPageJs == 'undefined') {
  * @version v0.10.
  */
 MenuPageJs.prototype.unfold = function() {
-	alert("进入MenuPageJs类的unfold方法");
+	$("#MenuPage").show();
+	$("#MenuPage").fadeIn();
 };
 
 /**

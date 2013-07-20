@@ -47,5 +47,9 @@ SysCtrl.prototype.initPage = function() {
 	};
 
 	new WelPageCtrl().unfold();
-	setTimeout("alert('XXOO');", 2000);
+	var timeoutFun = function() {
+		new MenuPageCtrl().unfold();
+	};
+	
+	setTimeout(timeoutFun, 2000);
 };

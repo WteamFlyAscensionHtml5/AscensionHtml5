@@ -18,7 +18,6 @@ if (typeof WelPageCtrl == 'undefined') {
  */
 WelPageCtrl.prototype.unfold = function() {
 	var indexPage = new SessionHelper().get("indexPage");
-	indexPage = "MenuPage";
 	if (indexPage == "MenuPage") {
 		new MenuPageJs().fold();
 	} else if (indexPage == "WelcomePage") {
