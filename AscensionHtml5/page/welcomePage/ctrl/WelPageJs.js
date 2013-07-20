@@ -17,8 +17,7 @@ if (typeof WelPageJs == 'undefined') {
  * @version v0.10.
  */
 WelPageJs.prototype.unfold = function() {
-	$("#WelcomePage").show();
-	$("#WelcomePage").fadeIn();
+	$("#WelcomePage").slideDown("slow");
 };
 
 /**
@@ -27,8 +26,7 @@ WelPageJs.prototype.unfold = function() {
  * @author ºî¿¥ÐÛ.
  * @version v0.10.
  */
-WelPageJs.prototype.fold = function() {
-	$("#WelcomePage").fadeOut();
-	$("#WelcomePage").hide();
+WelPageJs.prototype.fold = function(callBackFunParam) {
+	$("#WelcomePage").slideUp("slow", callBackFunParam);
 };
 

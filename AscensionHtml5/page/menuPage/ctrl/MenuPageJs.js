@@ -17,8 +17,7 @@ if (typeof MenuPageJs == 'undefined') {
  * @version v0.10.
  */
 MenuPageJs.prototype.unfold = function() {
-	$("#MenuPage").show();
-	$("#MenuPage").fadeIn();
+	$("#MenuPage").slideDown("slow");
 };
 
 /**
@@ -27,8 +26,7 @@ MenuPageJs.prototype.unfold = function() {
  * @author ºî¿¥ÐÛ.
  * @version v0.10.
  */
-MenuPageJs.prototype.fold = function() {
-	$("#MenuPage").fadeOut();
-	$("#MenuPage").hide();
+MenuPageJs.prototype.fold = function(callBackFunParam) {
+	$("#MenuPage").slideUp("slow", callBackFunParam);
 };
 
