@@ -30,4 +30,21 @@ SysCtrl.prototype.initPage = function() {
 	// 将body的长宽赋值为可见区域的长宽以实现响应式界面.
 	var screenWidth = document.documentElement.clientWidth;
 	new SessionHelper().set("screenWidth", screenWidth);
+	$("body").css("width", screenWidth);
+
+	var screenHeight = document.documentElement.clientHeight;
+	new SessionHelper().set("screenHeight", screenHeight);
+	$("body").css("height", screenHeight);
+
+	window.onresize = function() {
+		var screenWidth = document.documentElement.clientWidth;
+		new SessionHelper().set("screenWidth", screenWidth);
+		$("body").css("width", screenWidth);
+
+		var screenHeight = document.documentElement.clientHeight;
+		new SessionHelper().set("screenHeight", screenHeight);
+		$("body").css("height", screenHeight);
+	};
+
+	
 };

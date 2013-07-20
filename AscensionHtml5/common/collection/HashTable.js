@@ -1,4 +1,4 @@
-/*
+/**
  * 哈希表.
  * 
  * @author 侯骏雄.
@@ -7,15 +7,15 @@
 
 if (typeof HashTable == 'undefined') {
 	function HashTable() {
-		/*
+		/**
 		 * 哈希表长度.
 		 */
-		HashTable.prototype.size = 0;
+		this.size = 0;
 
-		/*
+		/**
 		 * 哈希表体.
 		 */
-		HashTable.prototype.entry = new Object();
+		this.entry = {};
 	}
 }
 
@@ -29,7 +29,7 @@ if (typeof HashTable == 'undefined') {
  */
 HashTable.prototype.get = function(key) {
 	if (this.containsKey(key)) {
-		return HashTable.prototype.entry[key];
+		return this.entry[key];
 	} else {
 		return null;
 	}
@@ -44,11 +44,10 @@ HashTable.prototype.get = function(key) {
  * @version v0.10.
  */
 HashTable.prototype.set = function(key, value) {
-	alert("进入HashTable的set方法，key = " + key + " value = " + value);
 	if (!this.containsKey(key)) {
-		HashTable.prototype.size++;
+		this.size++;
 	}
-	HashTable.prototype.entry[key] = value;
+	this.entry[key] = value;
 };
 
 /**
@@ -59,8 +58,8 @@ HashTable.prototype.set = function(key, value) {
  * @version v0.10.
  */
 HashTable.prototype.remove = function(key) {
-	if (this.containsKey(key) && (delete HashTable.prototype.entry[key])) {
-		HashTable.prototype.size--;
+	if (this.containsKey(key) && (delete this.entry[key])) {
+		this.size--;
 	}
 };
 
@@ -72,7 +71,7 @@ HashTable.prototype.remove = function(key) {
  * @version v0.10.
  */
 HashTable.prototype.containsKey = function(key) {
-	return (key in HashTable.prototype.entry);
+	return (key in this.entry);
 };
 
 /**
@@ -83,8 +82,8 @@ HashTable.prototype.containsKey = function(key) {
  * @version v0.10.
  */
 HashTable.prototype.containsValue = function(value) {
-	for ( var prop in HashTable.prototype.entry) {
-		if (HashTable.prototype.entry[prop] == value) {
+	for ( var prop in this.entry) {
+		if (this.entry[prop] == value) {
 			return true;
 		}
 	}
@@ -99,9 +98,9 @@ HashTable.prototype.containsValue = function(value) {
  * @version v0.10.
  */
 HashTable.prototype.getValues = function() {
-	var values = new Array();
-	for ( var prop in HashTable.prototype.entry) {
-		values.push(HashTable.prototype.entry[prop]);
+	var values = {};
+	for ( var prop in this.entry) {
+		values.push(this.entry[prop]);
 	}
 	return values;
 };
@@ -114,8 +113,8 @@ HashTable.prototype.getValues = function() {
  * @version v0.10.
  */
 HashTable.prototype.getKeys = function() {
-	var keys = new Array();
-	for ( var prop in HashTable.prototype.entry) {
+	var keys = {};
+	for ( var prop in this.entry) {
 		keys.push(prop);
 	}
 	return keys;
@@ -129,7 +128,7 @@ HashTable.prototype.getKeys = function() {
  * @version v0.10.
  */
 HashTable.prototype.getSize = function() {
-	return HashTable.prototype.size;
+	return this.size;
 };
 
 /**
@@ -139,6 +138,6 @@ HashTable.prototype.getSize = function() {
  * @version v0.10.
  */
 HashTable.prototype.clear = function() {
-	HashTable.prototype.size = 0;
-	HashTable.prototype.entry = new Object();
+	this.size = 0;
+	this.entry = {};
 };

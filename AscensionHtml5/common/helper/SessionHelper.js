@@ -7,6 +7,12 @@
 
 if (typeof SessionHelper == 'undefined') {
 	function SessionHelper() {
+		/**
+		 * Session哈希表.
+		 */
+		if (typeof SessionHelper.prototype.session == 'undefined') {
+			SessionHelper.prototype.session = new HashTable();
+		}
 	}
 }
 
@@ -19,7 +25,7 @@ if (typeof SessionHelper == 'undefined') {
  * @version v0.10.
  */
 SessionHelper.prototype.get = function(key) {
-	alert("进入SessionHelper的get方法");
+	return SessionHelper.prototype.session.get(key);
 };
 
 /**
@@ -31,5 +37,5 @@ SessionHelper.prototype.get = function(key) {
  * @version v0.10.
  */
 SessionHelper.prototype.set = function(key, value) {
-	alert("进入SessionHelper的set方法，key = " + key + " value = " + value);
+	SessionHelper.prototype.session.set(key, value);
 };
