@@ -47,4 +47,5 @@ SysCtrl.prototype.initPage = function() {
 	};
 
 	new WelPageCtrl().unfold();
+	setTimeout("alert('XXOO');", 2000);
 };

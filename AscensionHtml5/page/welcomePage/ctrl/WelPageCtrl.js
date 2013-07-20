@@ -18,13 +18,12 @@ if (typeof WelPageCtrl == 'undefined') {
  */
 WelPageCtrl.prototype.unfold = function() {
 	var indexPage = new SessionHelper().get("indexPage");
-	indexPage = "WelcomePage";
+	indexPage = "MenuPage";
 	if (indexPage == "MenuPage") {
-		$("#MenuPage").fadeOut();
-		$("#MenuPage").hide();
+		new MenuPageJs().fold();
 	} else if (indexPage == "WelcomePage") {
 		new WelPageJs().fold();
 	}
-	
-	
+	new WelPageJs().unfold();
+	new SessionHelper().set("indexPage", "WelcomePage");
 };

@@ -17,7 +17,8 @@ if (typeof WelPageJs == 'undefined') {
  * @version v0.10.
  */
 WelPageJs.prototype.unfold = function() {
-	alert("进入WelPageCtrl类的unfold方法");
+	$("#WelcomePage").show();
+	$("#WelcomePage").fadeIn();
 };
 
 /**
