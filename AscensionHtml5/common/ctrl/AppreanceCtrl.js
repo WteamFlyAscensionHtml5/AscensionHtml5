@@ -19,7 +19,7 @@ var initClient = function() {
 		$("body").css("width", document.documentElement.clientWidth);
 		$("body").css("height", document.documentElement.clientHeight);
 		$("#MenuPageBackgroundImg").css("width", document.documentElement.clientWidth);
-	}
+	};
 };
 
 AppreanceCtrl.prototype.init = function() {

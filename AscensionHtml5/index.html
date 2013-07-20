@@ -1,43 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<script src="./lib/jquery-1.9.1.min.js"></script>
-<script src="./common/ctrl/AppreanceCtrl.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="./page/common/css/common.css">
-<script src="./page/menuPage/ctrl/MenuPageCtrl.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="./page/menuPage/css/menuPage.css">
-<script src="./page/welcomePage/ctrl/WelcomePageCtrl.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="./page/welcomePage/css/welcomePage.css">
-<meta http-equiv="Content-Type" content="text/html; charset=gbk">
-<script>
-	var appreanceCtrl = null;
-	var menuPageCtrl = null;
-	var welcomePageCtrl = null;
-	window.onload = function() {
-		$(document).ready(function() {
-			appreanceCtrl = new AppreanceCtrl();
-			welcomePageCtrl = new WelcomePageCtrl();
-			menuPageCtrl = new MenuPageCtrl();
-			appreanceCtrl.init();
-		});
-	}
-</script>
+<meta charset="GBK">
+<script src="./lib/jquery-1.10.2.js"></script>
+<title>暗杀神</title>
 </head>
-<body>
-	<div id="MenuPage">
-		<div id="MenuPageBackground">
-			<div id="MenuPageBackgroundTop"></div>
-			<div id="MenuPageBackgroundLeft"></div>
-			<div id="MenuPageBackgroundRight"></div>
-			<div id="MenuPageBackgroundBottom"></div>
-			<img id="MenuPageBackgroundImg" src="./page/menuPage/img/menuPageBackground01.png"/>
-		</div>
-	</div>
-	<div id="WelcomePage">
-		<div id="WelcomePageLogo"></div>
-	</div>
+<body onload="alert('XXOO');">
 </body>
 </html>
