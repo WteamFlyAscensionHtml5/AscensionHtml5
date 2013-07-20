@@ -17,7 +17,7 @@ if (typeof SysCtrl == 'undefined') {
  * @version v0.10.
  */
 SysCtrl.prototype.init = function() {
-	alert("进入SysCtrl的init");
+	this.initPage();
 };
 
 /**
@@ -27,5 +27,7 @@ SysCtrl.prototype.init = function() {
  * @version v0.10.
  */
 SysCtrl.prototype.initPage = function() {
-	alert("进入SysCtrl的initPage");
+	// 将body的长宽赋值为可见区域的长宽以实现响应式界面.
+	var clientWidth = document.documentElement.clientWidth;
+	alert(clientWidth);
 };
