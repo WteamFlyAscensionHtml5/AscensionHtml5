@@ -46,5 +46,5 @@ SysCtrl.prototype.initPage = function() {
 		$("body").css("height", screenHeight);
 	};
 
-	
+	new WelPageCtrl().unfold();
 };
