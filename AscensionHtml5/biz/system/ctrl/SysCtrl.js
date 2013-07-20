@@ -28,6 +28,6 @@ SysCtrl.prototype.init = function() {
  */
 SysCtrl.prototype.initPage = function() {
 	// 将body的长宽赋值为可见区域的长宽以实现响应式界面.
-	var clientWidth = document.documentElement.clientWidth;
-	alert(clientWidth);
+	var screenWidth = document.documentElement.clientWidth;
+	new SessionHelper().set("screenWidth", screenWidth);
 };
