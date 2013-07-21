@@ -17,7 +17,11 @@ if (typeof MenuPageJs == 'undefined') {
  * @version v0.10.
  */
 MenuPageJs.prototype.unfold = function() {
-	$("#MenuPage").slideDown("slow");
+	var callBackFun = function() {
+		$("#MenuPageMenuBackground").slideDown("slow");
+	}
+	
+	$("#MenuPage").slideDown("slow", callBackFun);
 };
 
 /**
@@ -30,3 +34,26 @@ MenuPageJs.prototype.fold = function(callBackFunParam) {
 	$("#MenuPage").slideUp("slow", callBackFunParam);
 };
 
+/**
+ * 当鼠标移到菜单项时，改变菜单项图片
+ * 
+ * @author 侯骏雄.
+ * @version v0.10.
+ */
+MenuPageJs.prototype.menuItemOver = function() {
+	var src = $("#MenuPageMenuStartGame").attr("src");
+	src = "./page/menuPage/img/startGame_a.png";
+	$("#MenuPageMenuStartGame").attr("src", src);
+};
+
+/**
+ * 当鼠标移出菜单项时，改变菜单项图片
+ * 
+ * @author 侯骏雄.
+ * @version v0.10.
+ */
+MenuPageJs.prototype.menuItemOut = function() {
+	var src = $("#MenuPageMenuStartGame").attr("src");
+	src = "./page/menuPage/img/startGame.png";
+	$("#MenuPageMenuStartGame").attr("src", src);
+};

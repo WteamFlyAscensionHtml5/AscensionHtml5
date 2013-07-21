@@ -36,6 +36,17 @@ SysCtrl.prototype.initPage = function() {
 	new SessionHelper().set("screenHeight", screenHeight);
 	$("body").css("height", screenHeight);
 
+	// 主菜单界面背景图根据实际界面长宽进行调整
+	var menuPageBgScale = (new SessionHelper().get("screenWidth"))
+			/ (new SessionHelper().get("screenHeight"));
+	if (menuPageBgScale > 1.778) {
+		$("#MenuPageBackground").css("height", "100%");
+		$("#MenuPageBackground").css("width", "auto");
+	} else {
+		$("#MenuPageBackground").css("width", "100%");
+		$("#MenuPageBackground").css("height", "auto");
+	}
+
 	window.onresize = function() {
 		var screenWidth = document.documentElement.clientWidth;
 		new SessionHelper().set("screenWidth", screenWidth);
@@ -44,12 +55,22 @@ SysCtrl.prototype.initPage = function() {
 		var screenHeight = document.documentElement.clientHeight;
 		new SessionHelper().set("screenHeight", screenHeight);
 		$("body").css("height", screenHeight);
+
+		var menuPageBgScale = (new SessionHelper().get("screenWidth"))
+				/ (new SessionHelper().get("screenHeight"));
+		if (menuPageBgScale > 1.778) {
+			$("#MenuPageBackground").css("height", "100%");
+			$("#MenuPageBackground").css("width", "auto");
+		} else {
+			$("#MenuPageBackground").css("width", "100%");
+			$("#MenuPageBackground").css("height", "auto");
+		}
 	};
 
 	new WelPageCtrl().unfold();
 	var timeoutFun = function() {
 		new MenuPageCtrl().unfold();
 	};
-	
+
 	setTimeout(timeoutFun, 2000);
 };

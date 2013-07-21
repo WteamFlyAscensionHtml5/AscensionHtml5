@@ -1,53 +1,30 @@
 #MenuPage {
 	width: 100%;
 	height: 100%;
+	background-color: black;
+	text-align: center;
 }
 
-#MenuPageBackground {
+#MenuPageMenuBackground {
 	width: 100%;
 	height: 100%;
-}
-
-#MenuPageBackgroundTop {
-	width: 100%;
-	height: 100%;
-	background-image: url(../../menuPage/img/menuPageBackgroundTop.png);
-	background-repeat: repeat-x;
-	background-position: top center;
 	position: absolute;
-	top: 0;
-	left: 0;
+	left: 0px;
+	top: 0px;
+	text-align: center;
 }
 
-#MenuPageBackgroundLeft {
+#MenuPageMenuBackground {
 	width: 100%;
 	height: 100%;
-	background-image: url(../../menuPage/img/menuPageBackgroundLeft.png);
-	background-repeat: repeat-y;
-	background-position: top left;
-	position: absolute;
-	top: 0;
-	left: 0;
+	text-align: center;
 }
 
-#MenuPageBackgroundRight {
+#MenuPageMenu {
 	width: 100%;
 	height: 100%;
-	background-image: url(../../menuPage/img/menuPageBackgroundRight.png);
-	background-repeat: repeat-y;
-	background-position: top right;
 	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-#MenuPageBackgroundBottom {
-	width: 100%;
-	height: 100%;
-	background-image: url(../../menuPage/img/menuPageBackgroundBottom.png);
-	background-repeat: repeat-x;
-	background-position: bottom center;
-	position: absolute;
-	top: 0;
-	left: 0;
+	left: 0px;
+	top: 33%;
+	text-align: center;
 }
