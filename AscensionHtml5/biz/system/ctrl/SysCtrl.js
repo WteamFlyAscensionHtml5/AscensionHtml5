@@ -37,8 +37,7 @@ SysCtrl.prototype.initPage = function() {
 	$("body").css("height", screenHeight);
 
 	// 主菜单界面背景图根据实际界面长宽进行调整
-	var menuPageBgScale = (new SessionHelper().get("screenWidth"))
-			/ (new SessionHelper().get("screenHeight"));
+	var menuPageBgScale = (new SessionHelper().get("screenWidth")) / (new SessionHelper().get("screenHeight"));
 	if (menuPageBgScale > 1.778) {
 		$("#MenuPageBackground").css("height", "100%");
 		$("#MenuPageBackground").css("width", "auto");
@@ -56,8 +55,7 @@ SysCtrl.prototype.initPage = function() {
 		new SessionHelper().set("screenHeight", screenHeight);
 		$("body").css("height", screenHeight);
 
-		var menuPageBgScale = (new SessionHelper().get("screenWidth"))
-				/ (new SessionHelper().get("screenHeight"));
+		var menuPageBgScale = (new SessionHelper().get("screenWidth")) / (new SessionHelper().get("screenHeight"));
 		if (menuPageBgScale > 1.778) {
 			$("#MenuPageBackground").css("height", "100%");
 			$("#MenuPageBackground").css("width", "auto");

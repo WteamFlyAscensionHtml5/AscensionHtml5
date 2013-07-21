@@ -19,7 +19,7 @@ if (typeof MenuPageJs == 'undefined') {
 MenuPageJs.prototype.unfold = function() {
 	var callBackFun = function() {
 		$("#MenuPageMenuBackground").slideDown("slow");
-	}
+	};
 	
 	$("#MenuPage").slideDown("slow", callBackFun);
 };
