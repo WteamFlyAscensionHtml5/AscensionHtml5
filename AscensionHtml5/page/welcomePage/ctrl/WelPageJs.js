@@ -17,7 +17,8 @@ if (typeof WelPageJs == 'undefined') {
  * @version v0.10.
  */
 WelPageJs.prototype.unfold = function() {
-	$("#WelcomePage").slideDown("slow");
+	$("#WelcomePage").fadeIn('slow');
+	$("#WelcomePageLogo").fadeIn('slow');
 };
 
 /**
@@ -27,6 +28,9 @@ WelPageJs.prototype.unfold = function() {
  * @version v0.10.
  */
 WelPageJs.prototype.fold = function(callBackFunParam) {
-	$("#WelcomePage").slideUp("slow", callBackFunParam);
+	var callBackFun = function() {
+		$("#WelcomePage").fadeOut('slow', callBackFunParam);
+	};
+	$("#WelcomePageLogo").animate({opacity: '0'}, 'slow', null, callBackFun);
 };
 

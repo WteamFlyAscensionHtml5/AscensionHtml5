@@ -18,10 +18,10 @@ if (typeof MenuPageJs == 'undefined') {
  */
 MenuPageJs.prototype.unfold = function() {
 	var callBackFun = function() {
-		$("#MenuPageMenuBackground").slideDown("slow");
+		$("#MenuPageMenuBackground").animate({top: '0px'}, 'slow', null, null);
 	};
 	
-	$("#MenuPage").slideDown("slow", callBackFun);
+	$("#MenuPage").animate({top: '0px'}, 'slow', null, callBackFun);
 };
 
 /**
@@ -31,7 +31,7 @@ MenuPageJs.prototype.unfold = function() {
  * @version v0.10.
  */
 MenuPageJs.prototype.fold = function(callBackFunParam) {
-	$("#MenuPage").slideUp("slow", callBackFunParam);
+	$("#MenuPage").animate({top: '-100%'}, 'slow', null, callBackFunParam);
 };
 
 /**
