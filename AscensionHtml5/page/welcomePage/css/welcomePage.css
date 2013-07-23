@@ -1,9 +1,4 @@
 #WelcomePage {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	left: 0px;
-	top: 0px;
 	background-image: url(../img/welcomePageBackground.png);
 	background-repeat: repeat-x;
 	background-color: #F2F2F2;
@@ -11,10 +6,6 @@
 }
 
 #WelcomePageLogo {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	left: 0px;
 	top: 20%;
 	text-align: center;
 }
