@@ -21,7 +21,7 @@ MenuPageJs.prototype.unfold = function() {
 		$("#MenuPageMenuBackground").animate({top: '0px'}, 'slow', null, null);
 	};
 	
-	$("#MenuPage").animate({top: '0px'}, 'slow', null, callBackFun);
+	$("#MenuPage").fadeIn('slow', callBackFun);
 };
 
 /**
@@ -31,7 +31,7 @@ MenuPageJs.prototype.unfold = function() {
  * @version v0.10.
  */
 MenuPageJs.prototype.fold = function(callBackFunParam) {
-	$("#MenuPage").animate({top: '-100%'}, 'slow', null, callBackFunParam);
+	$("#MenuPage").fadeOut('slow', callBackFunParam);
 };
 
 /**
