@@ -29,15 +29,15 @@ SysCtrl.prototype.init = function() {
 SysCtrl.prototype.initPage = function() {
 	// 将body的长宽赋值为可见区域的长宽以实现响应式界面.
 	var screenWidth = document.documentElement.clientWidth;
-	new SessionHelper().set("screenWidth", screenWidth);
+	StateSsession.set("screenWidth", screenWidth);
 	$("body").css("width", screenWidth);
 
 	var screenHeight = document.documentElement.clientHeight;
-	new SessionHelper().set("screenHeight", screenHeight);
+	StateSsession.set("screenHeight", screenHeight);
 	$("body").css("height", screenHeight);
 
 	// 主菜单界面背景图根据实际界面长宽进行调整
-	var menuPageBgScale = (new SessionHelper().get("screenWidth")) / (new SessionHelper().get("screenHeight"));
+	var menuPageBgScale = (StateSsession.get("screenWidth")) / (StateSsession.get("screenHeight"));
 	if (menuPageBgScale > 1.778) {
 		$("#MenuPageBackground").css("height", "100%");
 		$("#MenuPageBackground").css("width", "auto");
@@ -48,14 +48,14 @@ SysCtrl.prototype.initPage = function() {
 
 	window.onresize = function() {
 		var screenWidth = document.documentElement.clientWidth;
-		new SessionHelper().set("screenWidth", screenWidth);
+		StateSsession.set("screenWidth", screenWidth);
 		$("body").css("width", screenWidth);
 
 		var screenHeight = document.documentElement.clientHeight;
-		new SessionHelper().set("screenHeight", screenHeight);
+		StateSsession.set("screenHeight", screenHeight);
 		$("body").css("height", screenHeight);
 
-		var menuPageBgScale = (new SessionHelper().get("screenWidth")) / (new SessionHelper().get("screenHeight"));
+		var menuPageBgScale = (StateSsession.get("screenWidth")) / (StateSsession.get("screenHeight"));
 		if (menuPageBgScale > 1.778) {
 			$("#MenuPageBackground").css("height", "100%");
 			$("#MenuPageBackground").css("width", "auto");
@@ -65,9 +65,9 @@ SysCtrl.prototype.initPage = function() {
 		}
 	};
 
-	new WelPageCtrl().unfold();
+	StateWelPageCtrl.unfold();
 	var timeoutFun = function() {
-		new MenuPageCtrl().unfold();
+		StateMenuPageCtrl.unfold();
 	};
 
 	setTimeout(timeoutFun, 2000);
