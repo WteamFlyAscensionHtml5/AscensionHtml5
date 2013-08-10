@@ -29,15 +29,15 @@ SysCtrl.prototype.init = function() {
 SysCtrl.prototype.initPage = function() {
 	// 将body的长宽赋值为可见区域的长宽以实现响应式界面.
 	var screenWidth = document.documentElement.clientWidth;
-	StateSsession.set("screenWidth", screenWidth);
+	staticSsession.set("screenWidth", screenWidth);
 	$("body").css("width", screenWidth);
 
 	var screenHeight = document.documentElement.clientHeight;
-	StateSsession.set("screenHeight", screenHeight);
+	staticSsession.set("screenHeight", screenHeight);
 	$("body").css("height", screenHeight);
 
 	// 主菜单界面背景图根据实际界面长宽进行调整
-	var menuPageBgScale = (StateSsession.get("screenWidth")) / (StateSsession.get("screenHeight"));
+	var menuPageBgScale = (staticSsession.get("screenWidth")) / (staticSsession.get("screenHeight"));
 	if (menuPageBgScale > 1.778) {
 		$("#MenuPageBackground").css("height", "100%");
 		$("#MenuPageBackground").css("width", "auto");
@@ -48,14 +48,14 @@ SysCtrl.prototype.initPage = function() {
 
 	window.onresize = function() {
 		var screenWidth = document.documentElement.clientWidth;
-		StateSsession.set("screenWidth", screenWidth);
+		staticSsession.set("screenWidth", screenWidth);
 		$("body").css("width", screenWidth);
 
 		var screenHeight = document.documentElement.clientHeight;
-		StateSsession.set("screenHeight", screenHeight);
+		staticSsession.set("screenHeight", screenHeight);
 		$("body").css("height", screenHeight);
 
-		var menuPageBgScale = (StateSsession.get("screenWidth")) / (StateSsession.get("screenHeight"));
+		var menuPageBgScale = (staticSsession.get("screenWidth")) / (staticSsession.get("screenHeight"));
 		if (menuPageBgScale > 1.778) {
 			$("#MenuPageBackground").css("height", "100%");
 			$("#MenuPageBackground").css("width", "auto");
@@ -65,11 +65,11 @@ SysCtrl.prototype.initPage = function() {
 		}
 	};
 
-	StateAudioHelper.initAudio();
+	staticAudioHelper.initAudio();
 	
-	StateWelPageCtrl.unfold();
+	staticWelPageCtrl.unfold();
 	var timeoutFun = function() {
-		StateMenuPageCtrl.unfold();
+		staticMenuPageCtrl.unfold();
 	};
 
 	setTimeout(timeoutFun, 2000);

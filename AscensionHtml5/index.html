@@ -23,39 +23,39 @@
 	/**
 	 * WelPageJs.
 	 */
-	var StateWelPageJs = new WelPageJs();
+	var staticWelPageJs = new WelPageJs();
 	/**
 	 * MenuPageJs.
 	 */
-	var StateMenuPageJs = new MenuPageJs();
+	var staticMenuPageJs = new MenuPageJs();
 	/**
 	 * WelPageCtrl.
 	 */
-	var StateWelPageCtrl = new WelPageCtrl();
+	var staticWelPageCtrl = new WelPageCtrl();
 	/**
 	 * MenuPageCtrl.
 	 */
-	var StateMenuPageCtrl = new MenuPageCtrl();
+	var staticMenuPageCtrl = new MenuPageCtrl();
 	/**
 	 * SysCtrl.
 	 */
-	var StateSysCtrl = new SysCtrl();	
+	var staticSysCtrl = new SysCtrl();	
 	/**
 	* BusCtrl.
 	*/	
-	var StateBusCtrl = new BusCtrl();	
+	var staticBusCtrl = new BusCtrl();	
 	/**
 	 * SessionHelper.
 	 */	
-	var StateSsession = new SessionHelper();	
+	var staticSsession = new SessionHelper();	
 	/**
 	* AudioHelper.
 	*/	
-	var StateAudioHelper = new AudioHelper();	
+	var staticAudioHelper = new AudioHelper();	
 </script>
 <title>暗杀神</title>
 </head>
-<body onload="StateBusCtrl.execute('init',null);">
+<body onload="staticBusCtrl.execute('init',null);">
 	<div id="WelcomePage" class="Layer" style="display: none">
 		<div id="WelcomePageLogo" class="Layer" style="display: none">
 			<img src="./page/welcomePage/img/welcomePageBackgroundLogo.png"
@@ -71,8 +71,8 @@
 			<div id="MenuPageMenu"  class="Layer">
 				<img id="MenuPageMenuStartGame"
 					src="./page/menuPage/img/startGame.png" style="height: 15%"
-					onmouseover="StateMenuPageJs.menuItemOver();" 
-					onmouseout="StateMenuPageJs.menuItemOut();"> <!--鼠标在上方和离开-->				
+					onmouseover="staticMenuPageJs.menuItemOver();" 
+					onmouseout="staticMenuPageJs.menuItemOut();"> <!--鼠标在上方和离开-->				
 			</div>
 		</div>
 	</div>

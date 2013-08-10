@@ -17,18 +17,18 @@ if (typeof WelPageCtrl == 'undefined') {
  * @version v0.10.
  */
 WelPageCtrl.prototype.unfold = function() {
-	var indexPage = StateSsession.get("indexPage");
+	var indexPage = staticSsession.get("indexPage");
 	var callBackUnfold = function() {
-		StateWelPageJs.unfold();
+		staticWelPageJs.unfold();
 	};
 	
 	if (indexPage == "MenuPage") {
-		StateMenuPageJs.fold(callBackUnfold);
+		staticMenuPageJs.fold(callBackUnfold);
 	} else if (indexPage == "WelcomePage") {
-		StateWelPageJs.fold(callBackUnfold);
+		staticWelPageJs.fold(callBackUnfold);
 	} else {
 		callBackUnfold();
 	}
 	
-	StateSsession.set("indexPage", "WelcomePage");
+	staticSsession.set("indexPage", "WelcomePage");
 };

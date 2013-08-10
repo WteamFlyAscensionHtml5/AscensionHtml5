@@ -20,6 +20,6 @@ if (typeof BusCtrl == 'undefined') {
  */
 BusCtrl.prototype.execute = function(command, request) {
 	if(command == "init") {		
-		StateSysCtrl.init();
+		staticSysCtrl.init();
 	}
 };
