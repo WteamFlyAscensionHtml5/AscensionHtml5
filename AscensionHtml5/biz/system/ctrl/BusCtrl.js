@@ -19,8 +19,7 @@ if (typeof BusCtrl == 'undefined') {
  * @version v0.20.
  */
 BusCtrl.prototype.execute = function(command, request) {
-	if(command == "init")
-	{		
+	if(command == "init"){		
 		StateSysCtrl.init();
 	}
 };
