@@ -15,7 +15,7 @@ if (typeof BusCtrl == 'undefined') {
  * 
  * @param command 操作命令
  * @param request 传入的参数哈希表
- * @author 梁俊杰.
+ * @author 梁俊杰
  * @version v0.20.
  */
 BusCtrl.prototype.execute = function(command, request) {
