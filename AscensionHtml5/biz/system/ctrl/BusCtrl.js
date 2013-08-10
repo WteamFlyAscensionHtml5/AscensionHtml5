@@ -10,6 +10,12 @@ if (typeof BusCtrl == 'undefined') {
 	}
 }
 
+// 定义业务类
+/**
+ * SysCtrl.
+ */
+var staticSysCtrl = new SysCtrl();
+
 /**
  * 中转入口.
  * 
@@ -19,7 +25,7 @@ if (typeof BusCtrl == 'undefined') {
  * @version v0.20.
  */
 BusCtrl.prototype.execute = function(command, request) {
-	if(command == "init") {		
+	if (command == "init") {
 		staticSysCtrl.init();
 	}
 };
