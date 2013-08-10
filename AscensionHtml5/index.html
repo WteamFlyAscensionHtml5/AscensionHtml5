@@ -10,6 +10,8 @@
 <meta charset="GBK">
 <script src="./lib/jquery-1.10.2.js"></script>
 <script src="./biz/system/ctrl/SysCtrl.js"></script>
+<script src="./biz/system/ctrl/BusCtrl.js"></script>
+<script src="./common/helper/AudioHelper.js"></script>
 <script src="./common/helper/SessionHelper.js"></script>
 <script src="./common/collection/HashTable.js"></script>
 <script src="./page/welcomePage/ctrl/WelPageCtrl.js"></script>
@@ -38,14 +40,22 @@
 	 * SysCtrl.
 	 */
 	var StateSysCtrl = new SysCtrl();
+	
+//	BusCtrl.
+	var StateBusCtrl = new BusCtrl();
+	
 	/**
 	 * SessionHelper.
-	 */
+	 */	
 	var StateSsession = new SessionHelper();
+	
+//	AudionHelper
+	var StateAudioHelper = new AudioHelper();
 </script>
 <title>暗杀神</title>
 </head>
-<body onload="StateSysCtrl.init();">
+//<body onload="StateSysCtrl.init();">
+<body onload="StateBusCtrl.execute('init',null);">
 	<div id="WelcomePage" class="Layer" style="display: none">
 		<div id="WelcomePageLogo" class="Layer" style="display: none">
 			<img src="./page/welcomePage/img/welcomePageBackgroundLogo.png"
@@ -61,8 +71,8 @@
 			<div id="MenuPageMenu"  class="Layer">
 				<img id="MenuPageMenuStartGame"
 					src="./page/menuPage/img/startGame.png" style="height: 15%"
-					onmouseover="StateMenuPageJs.menuItemOver();"
-					onmouseout="StateMenuPageJs.menuItemOut();">
+					onmouseover="StateMenuPageJs.menuItemOver();" 
+					onmouseout="StateMenuPageJs.menuItemOut();"> <!--鼠标在上方和离开-->				
 			</div>
 		</div>
 	</div>

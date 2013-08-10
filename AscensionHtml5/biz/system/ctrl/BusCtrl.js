@@ -20,4 +20,8 @@ if (typeof BusCtrl == 'undefined') {
  */
 BusCtrl.prototype.execute = function(command, request) {
 	//ґэМо
+	if(command == "init")
+		BusCtrl.init();
+//	else if(command == "init")
+//		{}
 };

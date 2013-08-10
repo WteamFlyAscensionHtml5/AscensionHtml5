@@ -65,6 +65,8 @@ SysCtrl.prototype.initPage = function() {
 		}
 	};
 
+	StateAudioHelper.initAudio();
+	
 	StateWelPageCtrl.unfold();
 	var timeoutFun = function() {
 		StateMenuPageCtrl.unfold();
