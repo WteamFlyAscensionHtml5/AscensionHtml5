@@ -17,6 +17,7 @@ if (typeof SysCtrl == 'undefined') {
  * @version v0.10.
  */
 SysCtrl.prototype.init = function() {
+	staticAudioHelper.initAudio();
 	this.initPage();
 };
 
@@ -64,8 +65,6 @@ SysCtrl.prototype.initPage = function() {
 			$("#MenuPageBackground").css("height", "auto");
 		}
 	};
-
-	staticAudioHelper.initAudio();
 	
 	staticWelPageCtrl.unfold();
 	var timeoutFun = function() {
