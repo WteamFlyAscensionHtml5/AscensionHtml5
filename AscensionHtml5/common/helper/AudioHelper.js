@@ -4,13 +4,13 @@
  * @author 侯骏雄.
  * @version v0.20.
  */
-if (typeof AudionHelper == 'undefined') {
-	function AudionHelper() {
+if (typeof AudioHelper == 'undefined') {
+	function AudioHelper() {
 		/**
 		 * 音频哈希表.
 		 */
-		if (typeof AudionHelper.prototype.audioSession == 'undefined') {
-			AudionHelper.prototype.audioSession = new HashTable();
+		if (typeof AudioHelper.prototype.audioSession == 'undefined') {
+			AudioHelper.prototype.audioSession = new HashTable();
 		}
 	}
 }
@@ -21,8 +21,13 @@ if (typeof AudionHelper == 'undefined') {
  * @author 侯骏雄.
  * @version v0.20.
  */
-AudionHelper.prototype.initAudio = function() {
-	//TODO
+AudioHelper.prototype.initAudio = function() {
+	if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.substring(0, 3) == "4.0") {
+		return;
+	} else {
+		var menuPageBackground = new Audio("./page/common/audio/MenuPageBackground.mp3");
+		this.set("MenuPageBackground", menuPageBackground);
+	}
 };
 
 /**
@@ -33,8 +38,12 @@ AudionHelper.prototype.initAudio = function() {
  * @author 侯骏雄.
  * @version v0.20.
  */
-AudionHelper.prototype.set = function(audioName, audio) {
-	//TODO
+AudioHelper.prototype.set = function(audioName, audio) {
+	if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.substring(0, 3) == "4.0") {
+		return;
+	} else {
+		AudioHelper.prototype.audioSession.set(audioName, audio);
+	}
 };
 
 /**
@@ -45,8 +54,12 @@ AudionHelper.prototype.set = function(audioName, audio) {
  * @author 侯骏雄.
  * @version v0.20.
  */
-AudionHelper.prototype.get = function(audioName) {
-	//TODO
+AudioHelper.prototype.get = function(audioName) {
+	if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.substring(0, 3) == "4.0") {
+		return;
+	} else {
+		return AudioHelper.prototype.audioSession.get(audioName);
+	}
 };
 
 /**
@@ -56,6 +69,49 @@ AudionHelper.prototype.get = function(audioName) {
  * @author 侯骏雄.
  * @version v0.20.
  */
-AudionHelper.prototype.fadeStrat = function(audioName) {
-	//TODO
+AudioHelper.prototype.fadeStart = function(audioName, speed) {
+	if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.substring(0, 3) == "4.0") {
+		return;
+	} else {
+		var audio = this.get(audioName);
+		audio.volume = 0;
+		var dis = speed/ 100;
+		
+		var volumeMinus = function() {
+			if (audio.volume < 1) {
+				if (audio.volume > 0.9) {
+					audio.volume = 1;
+				} else {
+					audio.volume = audio.volume + 0.01;
+				}
+				setTimeout(volumeMinus, dis);
+			}
+		};
+		
+		audio.play();
+		setTimeout(volumeMinus, dis);
+	}
+};
+
+/**
+ * 设置音频对象的循环模式，
+ * 
+ * @param audioName 音频的名称
+ * @param state 循环模式
+ *              trun为单曲循环.
+ *              false为不循环.
+ * @author 侯骏雄.
+ * @version v0.20.
+ */
+AudioHelper.prototype.setLoop = function(audioName, state) {
+	if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.substring(0, 3) == "4.0") {
+		return;
+	} else {
+		var audio = this.get(audioName);
+		if (state === true || state === false) {
+			audio.loop = state;
+		} else {
+			alert("传入AudioHelper.setLoop方法的state参数不是布尔型");
+		}
+	}
 };

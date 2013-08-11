@@ -29,6 +29,6 @@ MenuPageCtrl.prototype.unfold = function() {
 	} else {
 		callBackUnfold();
 	}
-	
+
 	staticSsession.set("indexPage", "MenuPage");
 };

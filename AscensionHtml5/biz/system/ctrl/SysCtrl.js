@@ -17,7 +17,7 @@ if (typeof SysCtrl == 'undefined') {
  * @version v0.10.
  */
 SysCtrl.prototype.init = function() {
-	staticAudioHelper.initAudio();
+	staticAudio.initAudio();
 	this.initPage();
 };
 

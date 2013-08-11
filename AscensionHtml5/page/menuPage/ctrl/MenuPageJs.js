@@ -21,6 +21,16 @@ MenuPageJs.prototype.unfold = function() {
 		$("#MenuPageMenuBackground").animate({top: '0px'}, 'slow', null, null);
 	};
 	
+	var randomNum = Math.floor((Math.random() * 9) + 1);
+	while(randomNum == 9) {
+		randomNum = Math.floor((Math.random() * 9) + 1);
+	}
+	
+	var menuPageBackgroundImage = "./page/menuPage/img/menuPageBackground0" + randomNum + ".jpg";
+	$("#MenuPageBackground").attr("src", menuPageBackgroundImage);
+	
+	staticAudio.setLoop("MenuPageBackground", true);
+	staticAudio.fadeStart("MenuPageBackground", 1000);
 	$("#MenuPage").fadeIn('slow', callBackFun);
 };
 
