@@ -11,6 +11,7 @@
 	href="./page/menuPage/css/menuPage.css">
 <meta charset="GBK">
 <script src="./lib/jquery-1.10.2.js"></script>
+<script src="./lib/jquery.easing.1.3.js"></script>
 <script src="./biz/system/ctrl/SysCtrl.js"></script>
 <script src="./biz/system/ctrl/BusCtrl.js"></script>
 <script src="./common/helper/AudioHelper.js"></script>
@@ -69,7 +70,8 @@
 				<img id="MenuPageMenuStartGame"
 					src="./page/menuPage/img/startGame.png" style="height: 15%"
 					onmouseover="staticMenuPageJs.menuItemOver();"
-					onmouseout="staticMenuPageJs.menuItemOut();">
+					onmouseout="staticMenuPageJs.menuItemOut();"
+					onclick="staticMenuPageJs.menuItemClick();">
 				<!--鼠标在上方和离开-->
 			</div>
 		</div>
