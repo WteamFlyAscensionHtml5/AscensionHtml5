@@ -71,11 +71,24 @@ MenuPageJs.prototype.menuItemOut = function() {
 };
 
 /**
- * 当鼠标点击菜单项时，播出音效
+ * 当对菜单项按下鼠标时，播出音效并做特效处理
  * 
  * @author 侯骏雄.
  * @version v0.20.
  */
-MenuPageJs.prototype.menuItemClick = function() {
+MenuPageJs.prototype.menuItemDown = function() {
 	staticAudio.playNewInstance("MenuPageMenuButtonClick");
+	$("#MenuPageMenu").css("top", "34%");
+	$("#MenuPageMenu").css("left", "-1%");
+};
+
+/**
+ * 当菜单项放开鼠标时，做特效处理
+ * 
+ * @author 侯骏雄.
+ * @version v0.20.
+ */
+MenuPageJs.prototype.menuItemUp = function() {
+	$("#MenuPageMenu").css("top", "33%");
+	$("#MenuPageMenu").css("left", "0%");
 };
