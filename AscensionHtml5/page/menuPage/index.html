@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" type="text/css"
+	href="../common/css/common.css">
+<link rel="stylesheet" type="text/css"
+	href="./css/menuPage.css">
+<meta charset="GBK">
+<script src="../../lib/jquery-1.10.2.js"></script>
+<script src="../../lib/jquery.easing.1.3.js"></script>
+<script src="./ctrl/MenuPageJs.js"></script>
+<script>
+	var staticMenuPageJs;
+	var ready = function(){
+		//初始化静态实例对象
+		/**
+		 * MenuPageJs.
+		 */
+		 staticMenuPageJs = new MenuPageJs();
+		
+		// 主菜单界面背景图根据实际界面长宽进行调整
+		var screenWidth = window.parent.document.documentElement.clientWidth;
+		var screenHeight = window.parent.document.documentElement.clientHeight;
+		var menuPageBgScale = screenWidth / screenHeight;
+		if (menuPageBgScale > 1.778) {
+			$("#MenuPageBackground").css("height", "100%");
+			$("#MenuPageBackground").css("width", "auto");
+		} else {
+			$("#MenuPageBackground").css("width", "100%");
+			$("#MenuPageBackground").css("height", "auto");
+		}
+		
+		window.onresize = function() {
+			var screenWidth = window.parent.document.documentElement.clientWidth;
+			var screenHeight = window.parent.document.documentElement.clientHeight;
+			var menuPageBgScale = screenWidth / screenHeight;
+			if (menuPageBgScale > 1.778) {
+				$("#MenuPageBackground").css("height", "100%");
+				$("#MenuPageBackground").css("width", "auto");
+			} else {
+				$("#MenuPageBackground").css("width", "100%");
+				$("#MenuPageBackground").css("height", "auto");
+			}
+		}
+	}
+</script>
+</head>
+<body onload="ready();">
+	<div id="MenuPage" class="Layer" style="display: none">
+		<img id="MenuPageBackground" />
+		<div id="MenuPageMenuBackground" class="Layer">
+			<img src="./img/menuPageMenuBackground.png"
+				style="height: 70%"> </br>
+			<div id="MenuPageMenu" class="Layer">
+				<img id="MenuPageMenuStartGame"
+					src="./img/startGame.png" style="height: 15%"
+					onmouseover="window.parent.$('#include')[0].contentWindow.staticMenuPageCtrl.menuItemOver();"
+					onmouseout="window.parent.$('#include')[0].contentWindow.staticMenuPageCtrl.menuItemOut();window.parent.$('#include')[0].contentWindow.staticMenuPageCtrl.menuItemUp();"
+					onmousedown="window.parent.$('#include')[0].contentWindow.staticMenuPageCtrl.menuItemDown();"
+					onmouseup="window.parent.$('#include')[0].contentWindow.staticMenuPageCtrl.menuItemUp();">
+				<!--鼠标在上方和离开-->
+			</div>
+		</div>
+	</div>
+</body>
+</html>

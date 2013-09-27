@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="GBK">
+<script src="./lib/jquery-1.10.2.js"></script>
+<script src="./common/collection/HashTable.js"></script>
+<script src="./common/helper/SessionHelper.js"></script>
+<script src="./common/helper/AudioHelper.js"></script>
+<script src="./common/helper/PageHelper.js"></script>
+<script src="./biz/system/ctrl/SysCtrl.js"></script>
+<script src="./page/welcomePage/ctrl/WelPageCtrl.js"></script>
+<script src="./page/menuPage/ctrl/MenuPageCtrl.js"></script>
+<script>
+	var staticSsession;
+	var staticAudio;
+	var staticPage;
+	var staticSysCtrl;
+	var staticWelPageCtrl;
+	var staticMenuPageCtrl;
+	var staticWelPageJs;
+	var staticMenuPageJs;
+	
+	var initInstance = function() {
+		/**
+		 * SessionHelper.
+		 */
+		 staticSsession = new SessionHelper();
+		/**
+		 * AudioHelper.
+		 */
+		 staticAudio = new AudioHelper();
+		/**
+		 * PageHelper.
+		 */
+		 staticPage = new PageHelper();
+		/**
+		 * SysCtrl.
+		 */
+		 staticSysCtrl = new SysCtrl();
+		/**
+		 * WelPageCtrl.
+		 */
+		 staticWelPageCtrl = new WelPageCtrl();
+		/**
+		 * MenuPageCtrl.
+		 */
+		 staticMenuPageCtrl = new MenuPageCtrl();
+		 /**
+		 * MenuPageJs.
+		 */
+		 staticMenuPageJs = window.parent.$("#menuPage")[0].contentWindow.staticMenuPageJs;
+	}
+	
+	var begin = function() {
+		staticSysCtrl.init();
+	}
+	
+	var isPageFinish = function() {
+		/**
+		 * WelPageJs.
+		 */
+		 staticWelPageJs = window.parent.$("#welcomePage")[0].contentWindow.staticWelPageJs;
+		
+		var timeoutFun = function() {
+			if (staticWelPageJs == null) {
+				staticWelPageJs = window.parent.$("#welcomePage")[0].contentWindow.staticWelPageJs;
+				setTimeout(timeoutFun, 100);
+			} else {
+				initInstance();
+				begin();
+			}
+		}
+		setTimeout(timeoutFun, 10);
+	}
+</script>
+</head>
+<body onload="isPageFinish();">
+</body>
+</html>
