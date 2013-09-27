@@ -43,16 +43,3 @@ WelPageJs.prototype.fadeOutLogo = function(callBackFunParam) {
 WelPageJs.prototype.fadeOutBackground = function(callBackFunParam) {
 	$("#WelcomePage").fadeOut('slow', callBackFunParam);
 };
-
-/**
- * ÊÕÆð±³¾°.
- * 
- * @author ºî¿¥ÐÛ.
- * @version v0.21.
- */
-WelPageJs.prototype.closePage = function(callBackFunParam) {
-	window.parent.$("#welcomePage").css("display", "none");
-	if (callBackFunParam != null) {
-		callBackFunParam();
-	}
-};
