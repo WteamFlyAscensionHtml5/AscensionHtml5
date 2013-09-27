@@ -11,28 +11,103 @@ if (typeof MenuPageJs == 'undefined') {
 }
 
 /**
- * 展开主菜单界面.
+ * 随机背景图片.
  * 
  * @author 侯骏雄.
- * @version v0.10.
+ * @version v0.21.
  */
-MenuPageJs.prototype.unfold = function() {
-	var callBackFun = function() {
-		staticAudio.playNewInstance("MenuPageMenuUnfold");
-		$("#MenuPageMenuBackground").animate({ top:["0px","easeOutBounce"]}, 800); 
-	};
-	
+MenuPageJs.prototype.setRandomBackground = function(callBackFunParam) {
 	var randomNum = Math.floor((Math.random() * 9) + 1);
 	while(randomNum == 9) {
 		randomNum = Math.floor((Math.random() * 9) + 1);
 	}
-	
-	var menuPageBackgroundImage = "./page/menuPage/img/menuPageBackground0" + randomNum + ".jpg";
+	var menuPageBackgroundImage = "./img/menuPageBackground0" + randomNum + ".jpg";
 	$("#MenuPageBackground").attr("src", menuPageBackgroundImage);
 	
-	staticAudio.setLoop("MenuPageBackground", true);
-	staticAudio.fadeStart("MenuPageBackground", 1000, 0.3);
-	$("#MenuPage").fadeIn('slow', callBackFun);
+	if (callBackFunParam != null) {
+		callBackFunParam();
+	}
+};
+
+/**
+ * 淡入主菜单界面.
+ * 
+ * @author 侯骏雄.
+ * @version v0.21.
+ */
+MenuPageJs.prototype.fadeInMenu = function(callBackFunParam) {
+	$("#MenuPage").fadeIn('slow', callBackFunParam);
+};
+	
+/**
+ * 下拉菜单背景.
+ * 
+ * @author 侯骏雄.
+ * @version v0.21.
+ */
+MenuPageJs.prototype.menuUnfold = function(callBackFunParam) {
+	$("#MenuPageMenuBackground").animate({ top:["0px","easeOutBounce"]}, 800); 
+	
+	if (callBackFunParam != null) {
+		callBackFunParam();
+	}
+};
+
+/**
+ * 滑入菜单项时改变图片.
+ * 
+ * @author 侯骏雄.
+ * @version v0.21.
+ */
+MenuPageJs.prototype.overMenuItemChangeImage = function(callBackFunParam) {
+	var src = $("#MenuPageMenuStartGame").attr("src");
+	src = "./img/startGame_a.png";
+	$("#MenuPageMenuStartGame").attr("src", src);
+	
+	if (callBackFunParam != null) {
+		callBackFunParam();
+	}
+};
+
+/**
+ * 滑出菜单项时改变图片.
+ * 
+ * @author 侯骏雄.
+ * @version v0.21.
+ */
+MenuPageJs.prototype.outMenuItemChangeImage = function(callBackFunParam) {
+	var src = $("#MenuPageMenuStartGame").attr("src");
+	src = "./img/startGame.png";
+	$("#MenuPageMenuStartGame").attr("src", src);
+	
+	if (callBackFunParam != null) {
+		callBackFunParam();
+	}
+};
+
+/**
+ * 当菜单项点击鼠标时，偏移图片
+ * 
+ * @author 侯骏雄.
+ * @version v0.21.
+ */
+MenuPageJs.prototype.menuItemDown = function(callBackFunParam) {
+	$("#MenuPageMenu").css("top", "34%");
+	$("#MenuPageMenu").css("left", "-1%");
+	if (callBackFunParam != null) {
+		callBackFunParam();
+	}
+};
+
+/**
+ * 当菜单项放开鼠标时，偏移图片
+ * 
+ * @author 侯骏雄.
+ * @version v0.21.
+ */
+MenuPageJs.prototype.menuItemUp = function() {
+	$("#MenuPageMenu").css("top", "33%");
+	$("#MenuPageMenu").css("left", "0%");
 };
 
 /**
@@ -43,52 +118,4 @@ MenuPageJs.prototype.unfold = function() {
  */
 MenuPageJs.prototype.fold = function(callBackFunParam) {
 	$("#MenuPage").fadeOut('slow', callBackFunParam);
-};
-
-/**
- * 当鼠标移到菜单项时，改变菜单项图片
- * 
- * @author 侯骏雄.
- * @version v0.10.
- */
-MenuPageJs.prototype.menuItemOver = function() {
-	staticAudio.playNewInstance("MenuPageMenuButtonMouseover");
-	var src = $("#MenuPageMenuStartGame").attr("src");
-	src = "./page/menuPage/img/startGame_a.png";
-	$("#MenuPageMenuStartGame").attr("src", src);
-};
-
-/**
- * 当鼠标移出菜单项时，改变菜单项图片并播放音效
- * 
- * @author 侯骏雄.
- * @version v0.10.
- */
-MenuPageJs.prototype.menuItemOut = function() {
-	var src = $("#MenuPageMenuStartGame").attr("src");
-	src = "./page/menuPage/img/startGame.png";
-	$("#MenuPageMenuStartGame").attr("src", src);
-};
-
-/**
- * 当对菜单项按下鼠标时，播出音效并做特效处理
- * 
- * @author 侯骏雄.
- * @version v0.20.
- */
-MenuPageJs.prototype.menuItemDown = function() {
-	staticAudio.playNewInstance("MenuPageMenuButtonClick");
-	$("#MenuPageMenu").css("top", "34%");
-	$("#MenuPageMenu").css("left", "-1%");
-};
-
-/**
- * 当菜单项放开鼠标时，做特效处理
- * 
- * @author 侯骏雄.
- * @version v0.20.
- */
-MenuPageJs.prototype.menuItemUp = function() {
-	$("#MenuPageMenu").css("top", "33%");
-	$("#MenuPageMenu").css("left", "0%");
 };

@@ -16,21 +16,43 @@ if (typeof WelPageJs == 'undefined') {
  * @author ºî¿¥ÐÛ.
  * @version v0.10.
  */
-WelPageJs.prototype.unfold = function() {
+WelPageJs.prototype.fadeInWel = function(callBackFunParam) {
 	$("#WelcomePage").fadeIn('slow');
 	$("#WelcomePageLogo").fadeIn('slow');
+	if (callBackFunParam != null) {
+		callBackFunParam();
+	}
 };
 
 /**
- * ÊÕÆð»¶Ó­½çÃæ.
+ * ÊÕÆðLOGO.
  * 
  * @author ºî¿¥ÐÛ.
- * @version v0.10.
+ * @version v0.21.
  */
-WelPageJs.prototype.fold = function(callBackFunParam) {
-	var callBackFun = function() {
-		$("#WelcomePage").fadeOut('slow', callBackFunParam);
-	};
-	$("#WelcomePageLogo").animate({opacity: '0'}, 'slow', null, callBackFun);
+WelPageJs.prototype.fadeOutLogo = function(callBackFunParam) {
+	$("#WelcomePageLogo").animate({opacity: '0'}, 'slow', null, callBackFunParam);
 };
 
+/**
+ * ÊÕÆð±³¾°.
+ * 
+ * @author ºî¿¥ÐÛ.
+ * @version v0.21.
+ */
+WelPageJs.prototype.fadeOutBackground = function(callBackFunParam) {
+	$("#WelcomePage").fadeOut('slow', callBackFunParam);
+};
+
+/**
+ * ÊÕÆð±³¾°.
+ * 
+ * @author ºî¿¥ÐÛ.
+ * @version v0.21.
+ */
+WelPageJs.prototype.closePage = function(callBackFunParam) {
+	window.parent.$("#welcomePage").css("display", "none");
+	if (callBackFunParam != null) {
+		callBackFunParam();
+	}
+};

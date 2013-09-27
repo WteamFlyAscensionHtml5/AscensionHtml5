@@ -19,13 +19,38 @@ if (typeof WelPageCtrl == 'undefined') {
 WelPageCtrl.prototype.unfold = function() {
 	var indexPage = staticSsession.get("indexPage");
 	var callBackUnfold = function() {
-		staticWelPageJs.unfold();
+		var funSet = [];
+		// 界面设置为可见
+		var open = function(callbackFun) {
+			staticPage.openPage("welcomePage");
+			if (callbackFun != null) {
+				callbackFun();
+			}
+		};
+		funSet.push(open);
+		// 淡入界面
+		funSet.push(staticWelPageJs.fadeInWel);
+		staticPage.animation(funSet);
 	};
 	
 	if (indexPage == "MenuPage") {
-		staticMenuPageJs.fold(callBackUnfold);
+//		staticMenuPageJs.fold(callBackUnfold);
 	} else if (indexPage == "WelcomePage") {
-		staticWelPageJs.fold(callBackUnfold);
+		var funSet = [];
+		// 淡出LOGO
+		funSet.push(staticWelPageJs.fadeOutLogo);
+		// 淡出背景
+		funSet.push(staticWelPageJs.fadeOutBackground);
+		// 界面设置为不可见
+		var close = function(callbackFun) {
+			staticPage.closePage("welcomePage");
+			if (callbackFun != null) {
+				callbackFun();
+			}
+		};
+		funSet.push(close);
+		funSet.push(callBackUnfold);
+		staticPage.animation(funSet);
 	} else {
 		callBackUnfold();
 	}

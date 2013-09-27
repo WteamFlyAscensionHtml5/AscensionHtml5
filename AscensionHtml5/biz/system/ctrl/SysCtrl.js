@@ -29,41 +29,22 @@ SysCtrl.prototype.init = function() {
  */
 SysCtrl.prototype.initPage = function() {
 	// 将body的长宽赋值为可见区域的长宽以实现响应式界面.
-	var screenWidth = document.documentElement.clientWidth;
+	var screenWidth = window.parent.document.documentElement.clientWidth;
 	staticSsession.set("screenWidth", screenWidth);
-	$("body").css("width", screenWidth);
+	window.parent.$("body").css("width", screenWidth);
 
-	var screenHeight = document.documentElement.clientHeight;
+	var screenHeight = window.parent.document.documentElement.clientHeight;
 	staticSsession.set("screenHeight", screenHeight);
-	$("body").css("height", screenHeight);
+	window.parent.$("body").css("height", screenHeight);
 
-	// 主菜单界面背景图根据实际界面长宽进行调整
-	var menuPageBgScale = (staticSsession.get("screenWidth")) / (staticSsession.get("screenHeight"));
-	if (menuPageBgScale > 1.778) {
-		$("#MenuPageBackground").css("height", "100%");
-		$("#MenuPageBackground").css("width", "auto");
-	} else {
-		$("#MenuPageBackground").css("width", "100%");
-		$("#MenuPageBackground").css("height", "auto");
-	}
-
-	window.onresize = function() {
-		var screenWidth = document.documentElement.clientWidth;
+	window.parent.window.onresize = function() {
+		var screenWidth = window.parent.document.documentElement.clientWidth;
 		staticSsession.set("screenWidth", screenWidth);
-		$("body").css("width", screenWidth);
+		window.parent.$("body").css("width", screenWidth);
 
-		var screenHeight = document.documentElement.clientHeight;
+		var screenHeight = window.parent.document.documentElement.clientHeight;
 		staticSsession.set("screenHeight", screenHeight);
-		$("body").css("height", screenHeight);
-
-		var menuPageBgScale = (staticSsession.get("screenWidth")) / (staticSsession.get("screenHeight"));
-		if (menuPageBgScale > 1.778) {
-			$("#MenuPageBackground").css("height", "100%");
-			$("#MenuPageBackground").css("width", "auto");
-		} else {
-			$("#MenuPageBackground").css("width", "100%");
-			$("#MenuPageBackground").css("height", "auto");
-		}
+		window.parent.$("body").css("height", screenHeight);
 	};
 	
 	staticWelPageCtrl.unfold();

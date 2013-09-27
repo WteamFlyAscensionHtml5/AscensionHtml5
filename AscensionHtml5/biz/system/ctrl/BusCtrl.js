@@ -10,12 +10,6 @@ if (typeof BusCtrl == 'undefined') {
 	}
 }
 
-// 定义业务类
-/**
- * SysCtrl.
- */
-var staticSysCtrl = new SysCtrl();
-
 /**
  * 中转入口.
  * 
