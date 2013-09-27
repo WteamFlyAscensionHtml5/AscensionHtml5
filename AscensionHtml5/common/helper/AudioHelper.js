@@ -24,15 +24,23 @@ if (typeof AudioHelper == 'undefined') {
 AudioHelper.prototype.initAudio = function() {
 	if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.substring(0, 3) == "4.0") {
 		return;
-	} else {
-		var menuPageBackground = new Audio("./page/common/audio/MenuPageBackground.mp3");
-		this.set("MenuPageBackground", menuPageBackground);
-		var menuPageMenuButtonMouseover = new Audio("./page/common/audio/MenuPageMenuButtonMouseover.mp3");
-		this.set("MenuPageMenuButtonMouseover", menuPageMenuButtonMouseover);
-		var menuPageMenuButtonClick = new Audio("./page/common/audio/MenuPageMenuButtonClick.mp3");
-		this.set("MenuPageMenuButtonClick", menuPageMenuButtonClick);
-		var menuPageMenuUnfold = new Audio("./page/common/audio/MenuPageMenuUnfold.mp3");
-		this.set("MenuPageMenuUnfold", menuPageMenuUnfold);
+	} else {		
+		$.ajax({
+			url:'./page/common/xml/audio.xml',
+			type: 'GET',
+			dataType: 'xml',
+			timeout: 0,
+			error: function(xml){
+				alert('Error loading XML document'+xml);
+			},
+			success:  function(xml) {
+				$(xml).find("audio").each(function(i){
+					var name = $(this).children("audioName").text();
+					var src = $(this).children("audioSrc").text();
+					AudioHelper.prototype.set(name, new Audio(src));
+				});
+			}
+		});
 	}
 };
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audios>
+	<audio>
+		<audioName>MenuPageBackground</audioName>
+		<audioSrc>./page/common/audio/MenuPageBackground.mp3</audioSrc>
+		<description>主菜单页面背景音乐</description>
+	</audio>
+	<audio>
+		<audioName>MenuPageMenuButtonMouseover</audioName>
+		<audioSrc>./page/common/audio/MenuPageMenuButtonMouseover.mp3</audioSrc>
+		<description>主菜单菜单项移出音效</description>
+	</audio>
+	<audio>
+		<audioName>MenuPageMenuButtonClick</audioName>
+		<audioSrc>./page/common/audio/MenuPageMenuButtonClick.mp3</audioSrc>
+		<description>主菜单菜单项点击音效</description>
+	</audio>
+	<audio>
+		<audioName>MenuPageMenuUnfold</audioName>
+		<audioSrc>./page/common/audio/MenuPageMenuUnfold.mp3</audioSrc>
+		<description>主菜单菜单项弹出音效</description>
+	</audio>
+</audios>
